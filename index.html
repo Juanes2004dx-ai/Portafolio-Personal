@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi tarjeta de presentación digital en la web.</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Fascinate+Inline&family=Kavoon&family=Monoton&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Chewy&family=Fascinate+Inline&family=Kavoon&family=Monoton&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Bienvenidos a mi Portafolio</h1>
+    <div class="encabezado">
+      <div id="mi-foto">
+          <img src="./imagenes/yo.jpeg" alt="Soy yo">
+      </div>
+      <div class="introduccion-encabezado">
+        <span class="etiqueta-encabezado">PORTAFOLIO PERSONAL</span>
+        <h2>¡Hola! Soy Juan Esteban</h2>
+        <p>Te doy la bienvenida a mi espacio personal. Aquí podrás conocer un poco sobre mí, mi formación en desarrollo de software, las herramientas que estoy aprendiendo y algunos de los proyectos en los que he trabajado.</p>
+        <p class="texto-invitacion">Explora mi recorrido y descubre lo que puedo crear.</p>
+      </div>
+      <button class="menu-hamburguesa" id="boton-menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="mi-lista">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="mi-lista" class="menu">
+        <ul>
+          <li><a href="#presentacion">Acerca de mi</a></li>
+          <li><a href="#perfil">Mi perfil profesional</a></li>
+          <li><a href="#lista">Lista de herramientas</a></li>
+          <!--<li><a href="#ft">Formularios y Tablas</a></li>-->
+          <li><a href="#proyectos">Mis proyectos</a></li>
+          <li><a href="#contactos">Mis contactos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section id="presentacion">
+      <h2>Un poco sobre mi</h2>
+      <p>Tengo 22 años de edad,
+        soy un chico bastante optimista con la vida, me gusta aprender cosas nuevas que sean de mi interes o agrado,
+        me gustan los videojuegos, leer libros mas especificamente los de fantasia y me gusta ver anime.</p>
+    </section>
+    <section id="perfil">
+      <h2>Mi perfil profesional</h2>
+      <p>Hace 2 años termine una carrera de tecnologo en mantenimiento elctronico e instrumental industrial
+        y actualmente estoy haciendo una carrera de tecnologo en analisis y desarrollo de software
+        y ya voy por mi segundo trimestre.</p>
+      <article>
+        <h3>Mis intereses en el desarrollo de software</h3>
+        <p>Yo esta carrera la inicie mas que todo por el dinero pero al conocer las bases de la carrera
+            e ir conociendo mas de esta se me ha hecho interesante el tema y querer saber mas de este mundo,
+            tambien quiero aprender la mayor cantidad de temas disponibles para asi el dia de la etapa practica o
+            la etapa laboral, querer implementar todo lo aprendido de una buena manera.</p>
+      </article>
+    </section>
+    <section id="lista">
+      <h2>Herramientas dominadas o en proceso de aprendizaje</h2>
+      <div class="contenedor">
+        <div class="elementos">
+          <div></div>
+          <h3>Herramientas dominadas</h3>
+          <p>En el transcurso de mi primer trimestre de aprendizaje logre comprender varios temas expuestos
+            en este trimestre, los cuales son:</p>
+          <p>- SQL</p>
+          <p>- Logica de programacion</p>
+          <p>- Fundamentos de Python</p>
+          <div id="otra-imgen">
+          <img id="dominadas" src="./imagenes/computadora.webp" alt="software">
+          </div>
+        </div>
+        <div class="elementos">
+          <h3>Herramientas en proceso de aprendizaje</h3>
+          <p>En este momento me encuentro cursando mi segundo trimestre de aprendizaje y en este me estan eseñando
+            las siguientes materias :</p>
+          <p>- HTML</p>
+          <p>- JavaScript</p>
+          <p>- CSS</p>
+          <div id="otra-imgen-2">
+          <img id="proceso" src="./imagenes/js_html_css.png" alt="software">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <aside id="proyectos">
+    <!--<h2>Formularios</h2>
+    <form action="ft">
+      <label for="nombre" required>
+        <strong><span>Nombre completo:*</span></strong>
+        <br>
+        <input type="text" id="nombre" placeholder="Tu nombre completo">
+      </label>
+      <br>
+      <label for="email" required>
+        <strong><span>Correo electronico:*</span></strong>
+        <br>
+        <input type="email" id="email" placeholder="Tu correo">
+      </label>
+      <br>
+      <label for="fecha">
+        <strong><span>Fecha de nacimiento:</span></strong>
+        <br>
+        <input type="date" id="fecha">
+      </label><br><br>
+      <button type="submit">Enviar</button>
+    </form>
+    <form>
+      <strong><p>Generos:</p></strong>
+      <input type="radio" id="hombre" name="genero" value="HOMBRE">
+      <label for="hombre">Hombre</label>
+      <br>
+      <input type="radio" id="mujer" name="genero" value="MUJER">
+      <label for="mujer">Mujer</label>
+      <br>
+      <input type="radio" id="otro" name="genero" value="OTRO">
+      <label for="otro">Otro</label>
+      <br>
+    </form>
+    <form>
+      <strong><p>Cursos:</p></strong>
+      <select name="cursos" id="">
+      <option value="JavaScript">JavaScript</option>
+      <option value="HTML5">HTML5</option>
+      <option value="PYTHON">Python</option>
+      <option value="BASES DE DATOS">Bases de Datos</option>
+      </select> 
+    </form>
+    <br>
+    <table border="1">
+      <h2>Tabla</h2>
+      <thead>
+        <tr>
+          <th>ID estudiante</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Curso</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <td>01</td>
+        <td>Juan Esteban</td>
+        <td>juan@correo.com</td>
+        <td>HTML</td>
+        <td>Activo</td>
+      </tbody>
+    </table>-->
+    <h2>Proyectos realizados</h2>
+      <div class="cartas">
+        <div class="card">
+          <h3>Proyecto final fundamentos de logica en python</h3>
+          <p>Trabajo final de todo lo enseñando en la materia de funtamendos durante los 3 meses que duro esta,
+            el proyectos consistia en hacer un spa de mascotas en el que al ingresar ya sea un perro o un gato,
+            preguntar las carasteristicas de estas y tambien preguntar al cliente que tipo de cuidado se le
+            queria hacer a su mascota, y ya a lo ultimo hacerle un factura al usuario.</p>
+          <a href="https://github.com/Juanes2004dx-ai/Proyecto-final-fundamentos-de-logica-en-python" target="_blank">Proyecto final de python</a>
+          <br>
+          <div id="spa">
+            <img id="imagenes_spa" src="./imagenes/perro_ducha.gif" alt="Spa para mascotas" width="200" height="200">
+          </div>
+        </div>
+        <div class="card">
+          <h3>Proyecto Formativo Fase # 1 : MimiPet</h3>
+          <p>En la actualidad, muchas personas tienen mascotas en sus hogares, pero debido a sus responsabilidades laborales, estudios o otras cosas, 
+            no siempre cuentan con el tiempo suficiente para brindarles los cuidados que necesitan, como sacarlas a pasear, alimentarlas, bañarlas o acompañarlas durante el día. 
+            Esto puede generar dificultades para los dueños que desean garantizar el bienestar de sus mascotas mientras se encuentran ocupados. Por esta razón, 
+            nos planteamos desarrollar una aplicación móvil que funcione como una plataforma de conexión entre los dueños de mascotas y las personas que ofrecen servicios de cuidado animal. 
+            La aplicación permitirá que los dueños puedan buscar cuidadores, consultar sus perfiles y solicitar servicios como paseos, alimentación, baños y acompañamiento, 
+            y que las otras personas interesadas en cuidar mascotas podrán registrarse, crear su perfil y ofrecer sus servicios para que otros usuarios puedan contactarlas.</p>
+          <br>
+          <div id="MimoPet">
+            <img id="imagenes_mimopet" src="./imagenes/Mimopet.png" alt="MimoPet" width="200" height="200">
+          </div>
+        </div>
+        <div class="card">
+          <h3>Proyecto final en el area de Matematicas</h3>
+          <p>Trabajo final de todo lo enseñando en la materia de funtamendos durante los 3 meses que duro esta,
+            el proyectos consistia en realizar varias operaciones matematicas con las diferentes herramientas disponibles
+            en el lenguaje de Python para al final realizar una calculadora qué dependiendo de los numeros permitidos,
+            seleccionar una operacion matematica, y al final crear un codigo que haga 2 operaciones matematicas a nuestro gusto.</p>
+          <a href="https://github.com/Juanes2004dx-ai/Proyecto-final-Matematicas" target="_blank">Proyecto final de Matematicas</a>
+          <br>
+          <div id="mate">
+            <img id="imagenes_mate" src="./imagenes/perro_mate.gif" alt="Matematicas" width="200" height="200">
+          </div>
+        </div>
+      </div>
+  </aside>
+  <footer id="contactos" >
+    <h2>contactos</h2>
+    <div class="cont">
+      <p>© 2026 Mi Sitio Web - Todos los derechos reservados</p>
+      <p>Numero de contacto(Telefono movil): 3007831774 <span class="emoji">📱</span></p>
+      <p>Correo electronico:jeph2004dx@gmail.com <span class="emoji">📧</span></p>  
+    </div>
+  </footer>
+  <script src="imagenes.js"></script>
+</body>
+</html>
