@@ -1,0 +1,621 @@
+/*===================================
+        VARIABLES GLOBALES
+====================================*/
+:root { 
+  --color-primario: white;
+  --color-secundario: black;
+  --color-terciario: #0bbee2;
+  --color-cuaternario: #21599c;
+  --texto-titulo: "Chewy", "Times New Roman", Times, serif;
+  --texto-parrafo: "Carter One", sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  background-image: url("imagenes/fondo_nieve.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /*Mantiene el fondo fijo mientras se desplaza la página.*/
+  scroll-behavior: smooth; /*Hace que el desplazamiento de la página sea suave.*/
+}
+/*===================================
+      CONFIGURACIÓN DEL CUERPO
+====================================*/
+body {
+  margin: 0;
+  padding: 150px;
+  border: 8px solid var(--color-cuaternario);
+  color: var(--color-secundario);
+  font-family: var(--texto-titulo);
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 4px solid var(--color-terciario);
+  border-radius: 8px;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--texto-parrafo);
+  text-align: center;
+}
+h1 {
+  margin-top: 0;
+  margin-bottom: 50px;
+  text-align: center;
+  padding: 10px;
+  border: 4px solid var(--color-terciario);
+  border-radius: 50px; /*Redondea las esquinas del encabezado*/
+  background-color: var(--color-secundario);
+  color: var(--color-primario);
+  font-size: 50px;
+}
+h2 {
+  color: var(--color-cuaternario);
+  font-size: 25px;
+  text-decoration: underline;
+  text-decoration-color: var(--color-terciario);
+}
+h3 {
+  color: var(--color-terciario);
+  font-size: 20px;
+  text-decoration: underline;
+  text-decoration-color: var(--color-cuaternario);
+}
+a {
+  color: var(--color-terciario);
+  text-decoration: none; /*Quiata toda dercoracion que tenga el texto, en este caso el subrayado*/
+  font-size: 20px;
+}
+p {
+  font-size: 20px;
+}
+/*===================================
+      ENCABEZADO DE LA PÁGINA
+====================================*/
+.encabezado {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  grid-template-areas:
+    "foto introduccion" /*foto: representa el espacio destinado a la fotografía. Introduccion: representa el espacio destinado al texto de presentación*/
+    "navegacion navegacion"; /*navegacion: representa el espacio del menú. Se repite dos veces porque el menú ocupará las dos columnas.*/
+  align-items: center;
+  gap: 22px 28px;
+  padding: 26px;
+  border: 3px solid var(--color-terciario);
+  border-radius: 24px;
+  background: linear-gradient(125deg, #071b32, #102d49 58%, #071521);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+  color: white;
+}
+#mi-foto {
+  grid-area: foto;
+  display: flex;
+  flex: 0 0 auto; /*forma resumida de decir flex-grow: 0 (no se agrande); flex-shrink: 0 (no se reduzca); flex-basis: auto (utuliza el espacio del elemento);*/
+  align-items: center;
+}
+#mi-foto img {
+  width: 170px;
+  height: 230px;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+.introduccion-encabezado {
+  grid-area: introduccion;
+  text-align: left;
+  padding: 8px 12px;
+}
+.etiqueta-encabezado {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 6px 12px;
+  border: 1px solid var(--color-terciario);
+  border-radius: 30px;
+  color: var(--color-terciario);
+  font-family: var(--texto-parrafo);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+}
+.introduccion-encabezado h2 {
+  margin-bottom: 12px;
+  color: white;
+  font-family: var(--texto-titulo);
+  font-size: clamp(24px, 3vw, 34px);
+  text-align: left;
+  text-decoration: none;
+}
+.introduccion-encabezado p {
+  max-width: 720px;
+  color: #e5edf5;
+  font-family: var(--texto-parrafo);
+  font-size: 16px;
+  line-height: 1.7;
+}
+.introduccion-encabezado .texto-invitacion {
+  margin-top: 10px;
+  color: var(--color-terciario);
+  font-weight: bold;
+}
+#mi-lista {
+  grid-area: navegacion;
+  padding: 10px;
+  border-radius: 50px;
+  text-align: center;
+}
+.menu {
+  display: flex;
+  flex: 0 1 auto; /*flex-shrink: 0 (se reduce si falta espacio);*/
+  align-items: center;
+}
+.menu-hamburguesa { /*Botón hamburguesa*/
+    display: none;
+    background-color: var(--color-primario);
+    border: 0.125rem solid var(--color-terciario);
+    border-radius: 0.5rem;
+    padding: 0.625rem;
+}
+.menu-hamburguesa span { /*Rayitas del botón*/
+    display: block;
+    width: 1.75rem;
+    height: 0.1875rem;
+    background-color: var(--color-secundario);
+    margin: 0.3125rem;
+    border-radius: 0.25rem;
+}
+.menu ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.menu li a {
+  display: block;
+  padding: 10px 14px; /*Agrega espacio interno: 10 px arriba y abajo; 14 px a izquierda y derecha.*/
+  border-radius: 6px;
+  background-color: var(--color-primario);
+  color: var(--color-terciario);
+  transition: all 0.3s ease; /*Permite que los botones se agranden y generen un sombreado en ellos*/
+}
+.menu li a:hover {
+  background-color: var(--color-terciario);
+  color: var(--color-primario);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);;
+}
+.menu li a:active {
+  background-color: var(--color-cuaternario);
+  color: var(--color-primario);
+}
+/*===================================
+  SECCION DE PRESENTACION Y PERFIL
+====================================*/
+#presentacion {
+  margin: 22px 0;
+  padding: 20px;
+  border: 3px solid var(--color-terciario);
+  border-radius: 50px;
+  background-color: var(--color-primario);
+}
+#perfil {
+  margin: 22px 0;
+  padding: 20px;
+  border: 3px solid var(--color-terciario);
+  border-radius: 50px;
+  background-color: var(--color-primario);
+}
+/*===================================
+        ARTÍCULO DEL PERFIL
+====================================*/
+#perfil article {
+  padding: 18px;
+  border: 3px solid var(--color-terciario);
+  border-radius: 50px;
+  background-color: var(--color-secundario);
+  color: var(--color-primario);
+}
+#perfil article h3 {
+  color: var(--color-terciario);
+}
+/*===================================
+      LISTA DE HERRAMIENTAS
+====================================*/
+#lista h2 {
+  padding: 18px;
+  border: 3px solid var(--color-terciario);
+  border-radius: 50px;
+  background-color: var(--color-secundario);
+  color: var(--color-terciario);
+}
+#lista h3 {
+  color: var(--color-cuaternario);
+}
+/*===================================
+      CONTENEDOR DE HERRAMIENTAS
+====================================*/
+.contenedor {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 25px;
+  padding: 20px;
+}
+/*===================================
+      TARJETAS DE HERRAMIENTAS
+====================================*/
+.elementos {
+  flex: 1 1 400px;
+  max-width: 600px;
+  padding: 20px;
+  border: 3px solid var(--color-terciario);
+  border-radius: 20px;
+  background: radial-gradient(at top left, whitesmoke, #0bbee2);
+  color: var(--color-secundario);
+}
+#otra-imgen,
+#otra-imgen-2 {
+  display: flex;
+  flex: 1; /*Permite que el contenedor crezca y ocupe espacio disponible*/
+  justify-content: center;
+  min-width: 0; /*Permite que el elemento se reduzca por debajo de su tamaño mínimo automático. Esto resulta especialmente útil en diseños Flexbox para evitar desbordamientos.*/
+}
+#otra-imgen img {
+  width: 100%;
+  max-width: 250px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+#otra-imgen img:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: var(--color-cuaternario);
+  border: 3px solid var(--color-terciario);
+}
+#otra-imgen-2 img {
+  width: 100%;
+  max-width: 200px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+#otra-imgen-2 img:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: var(--color-cuaternario);
+  border: 3px solid var(--color-terciario);
+}
+/*===================================
+        APARTADOS DE PROYECTOS
+====================================*/
+aside h2 {
+  padding: 18px;
+  border: 3px solid var(--color-terciario);
+  border-radius: 50px;
+  background-color: var(--color-secundario);
+  color: var(--color-terciario);
+}
+aside h3 {
+  color: var(--color-cuaternario);
+}
+/*===================================
+      CONTENEDOR DE PROYECTOS
+====================================*/
+.cartas {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch; /*Estira los elementos para que ocupen la altura disponible del contenedor.*/
+  justify-content: space-evenly;
+  gap: 25px;
+  padding: 20px;
+}
+/*===================================
+        TARJETAS DE PROYECTOS
+====================================*/
+.card {
+  flex: 1 1 400px;
+  max-width: 600px;
+  padding: 20px;
+  border: 3px solid var(--color-terciario);
+  border-radius: 20px;
+  background: linear-gradient(whitesmoke, #0bbee2);
+  color: var(--color-secundario);
+}
+/*===================================
+        ENLACES DE PROYECTOS
+====================================*/
+#proyectos a {
+  display: inline-block; /*Permite que el enlace permanezca en línea, pero también que puedas establecer dimensiones y aplicar correctamente el padding*/
+  padding: 10px;
+  border-radius: 50px;
+  background-color: var(--color-secundario);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+#proyectos a:hover {
+  background-color: var(--color-terciario);
+  color: var(--color-primario);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);;
+}
+#proyectos a:active {
+  background-color: var(--color-cuaternario);
+}
+#spa,
+#MimoPet,
+#mate {
+  margin-top: 20px;
+  text-align: center;
+}
+#spa img,
+#MimoPet,
+#mate img {
+  width: 200px;
+  max-width: 100%;
+  margin: 0 auto; /*Elimina el margen superior e inferior y distribuye automáticamente los márgenes izquierdo y derecho. Esto permitiendolas ubicar de manera centrada*/
+}
+/*===================================
+            PIE DE PÁGINA
+====================================*/
+footer {
+  margin-top: 50px;
+  padding: 18px;
+  border: 3px solid var(--color-terciario);
+  border-radius: 50px;
+  background-color: gray;
+  color: var(--color-primario);
+}
+footer h2 {
+  text-align: center;
+  color: var(--color-terciario);
+  text-decoration-color: var(--color-cuaternario);
+}
+/*===================================
+      CONTENEDOR DE CONTACTOS
+====================================*/
+.cont {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px 40px;
+  padding: 0;
+  text-align: center;
+}
+.emoji {
+  font-size: 35px;
+  vertical-align: middle;/*Alinea verticalmente el elemento con el punto medio de la línea de texto*/
+}
+/*===================================
+            DESKTOP
+====================================*/
+@media (max-width: 1024px) {
+  .encabezado {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .menu ul {
+    justify-content: center;
+  }
+  .contenedor,
+  .cartas {
+    flex-direction: row;
+  }
+  .elementos,
+  .card {
+    flex: 1 1 22.5rem;
+    max-width: calc(50% - 0.5625rem);/*calc() permite realizar operaciones matemáticas dentro de CSS. En este caso, establece un ancho máximo equivalente al 50 % del contenedor menos 0.5625 rem. Esto ayuda a que las tarjetas puedan distribuirse en dos columnas.*/
+    min-width: 0;
+  }
+}
+/*===================================
+            TABLETS
+====================================*/
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+    border-width: 0.375rem;
+  }
+  h1 {
+    font-size: 2rem;
+    padding: 1.125rem;
+  }
+  .encabezado {
+    gap: 1rem;
+    padding: 1rem;
+    align-items: center;
+  }
+  .introduccion-encabezado {
+    padding: 4px;
+  }
+  .introduccion-encabezado p {
+    font-size: 0.95rem;
+  }
+  #mi-foto img {
+    width: 7.375rem;
+    height: 12.71875rem;
+    object-fit: cover;
+  }
+  .menu {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  #mi-lista {
+    min-width: 0;
+    padding: 0.375rem;
+  }
+  .menu ul {
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .menu li a {
+    padding: 0.5rem 0.625rem;
+    font-size: 0.875rem;
+  }
+  #presentacion,
+  #perfil {
+    margin: 1rem 0;
+    padding: 1rem;
+  }
+  .contenedor,
+  .cartas {
+    gap: 1rem;
+    padding: 0.875rem;
+  }
+  .elementos,
+  .card {
+    flex: 1 1 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 1rem;
+  }
+  #otra-imgen,
+  #otra-imgen-2 {
+    min-width: 0;
+  }
+  footer {
+    padding: 1rem;
+  }
+  .cont {
+    gap: 1rem 1.5rem;
+  }
+}
+/*===================================
+            CELULARES
+====================================*/
+@media (max-width: 600px) {
+  body {
+    padding: 0.625rem;
+    border-width: 0.25rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+    padding: 0.875rem;
+    border-radius: 1.5rem;
+  }
+  h2 {
+    font-size: 1.25rem;
+  }
+  h3 {
+    font-size: 1.125rem;
+  }
+  .encabezado {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0.875rem;
+  }
+  .introduccion-encabezado {
+    text-align: center;
+    padding: 0.25rem;
+  }
+  .introduccion-encabezado h2 {
+    text-align: center;
+  }
+  .introduccion-encabezado p {
+    font-size: 0.9rem;
+  }
+  #mi-foto {
+    justify-content: center;
+  }
+  #mi-foto img {
+    width: 7.375rem;
+    height: 12.71875rem;
+    object-fit: cover;
+  }
+  #mi-lista {
+    width: 100%;
+    padding: 0.375rem;
+  }
+.menu-hamburguesa {/*Botón hamburguesa*/
+    display: block;
+    margin: 0 auto;
+}
+.menu { /*Menú oculto inicialmente*/
+    display: none;
+    width: 100%;
+    justify-content: center;
+}
+.menu.is-open { /*Menú visible cuando se presiona el botón*/
+    display: flex;
+}
+.menu ul { /*Organización de los botones*/
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    width: 100%;
+}
+  .menu li {
+    width: 100%;
+  }
+  .menu li a {
+    width: 100%;
+    padding: 0.625rem;
+    text-align: center;
+    font-size: 0.9375rem;
+  }
+  #presentacion,
+  #perfil {
+    margin: 0.875rem 0;
+    padding: 0.875rem;
+    border-radius: 1.5rem;
+  }
+  #perfil article {
+    padding: 0.875rem;
+    border-radius: 1.5rem;
+  }
+  #lista h2,
+  aside h2 {
+    padding: 0.875rem;
+    border-radius: 1.5rem;
+  }
+  .contenedor,
+  .cartas {
+    flex-direction: column;
+    gap: 0.875rem;
+    padding: 0.5rem;
+  }
+  .elementos,
+  .card {
+    flex-basis: 100%;
+    min-width: 0;
+    padding: 15px;
+  }
+  #otra-imgen img,
+  #otra-imgen-2 img {
+    max-width: min(100%, 220px);
+  }
+  #proyectos a {
+    display: inline-block;
+    max-width: 100%;
+    overflow-wrap: anywhere; /*Permite dividir palabras o direcciones largas para evitar que se salgan del contenedor.*/
+  }
+  footer {
+    margin-top: 0.875rem;
+    padding: 0.875rem;
+    border-radius: 1.5rem;
+  }
+  .cont {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .cont p {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+  .emoji {
+    font-size: 1.5rem;
+  }
+}
